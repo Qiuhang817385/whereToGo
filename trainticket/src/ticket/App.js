@@ -4,7 +4,6 @@ import URI from 'urijs';
 import './css/App.css'
 import Detail from './../common/Detail';
 import Candidate from './Candidate'
-import Schedule from './Schedule'
 import Header from '../common/Header'
 import Nav from '../common/Nav';
 import { TrainContext } from './context';
@@ -141,8 +140,12 @@ function App (props) {
           departStation={departStation}
           arriveStation={arriveStation}
           durationStr={durationStr}
-          doToggleIsScheduleVisible={doToggleIsScheduleVisible}
-        />
+        // doToggleIsScheduleVisible={doToggleIsScheduleVisible}
+        >
+          <span className="left"></span>
+          <span className="schedule" onClick={() => { doToggleIsScheduleVisible() }}>时刻表</span>
+          <span className="right"></span>
+        </Detail>
       </div>
       <TrainContext.Provider value={{ trainNumber, departStation, arriveStation, departDate }}>
         <Candidate

@@ -41,7 +41,7 @@ const Seat = memo(function (props) {
         <i>$</i>
         {priceMsg}
       </span>
-      <span className="btn">{expanded ? '预定' : '收起'}</span>
+      <span className="btn">{expanded ? '收起' : '预定'}</span>
       <span className="num">
         {ticketsLeft}
       </span>
