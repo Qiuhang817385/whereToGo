@@ -28,6 +28,10 @@ const initialState = {
 }
 
 export default (state = initialState, { type, payload }) => {
+
+  let newCheckedTrainTypes;
+  let newHighSpeed;
+  let checkedTrainTypes;
   switch (type) {
 
     case ACTION_SET_FROM:
@@ -38,7 +42,7 @@ export default (state = initialState, { type, payload }) => {
       return { ...state, departDate: payload }
     case ACTION_SET_HIGH_SPEED:
       console.log('state', state)
-      const newCheckedTrainTypes = state.checkedTrainTypes;
+      newCheckedTrainTypes = state.checkedTrainTypes;
       // let newisFiltersVisible = state.isFiltersVisible;
       // console.log('newisFiltersVisible', newisFiltersVisible)
       if (payload) {
@@ -70,9 +74,9 @@ export default (state = initialState, { type, payload }) => {
       return { ...state, trainTypes: payload }
     case ACTION_SET_CHECKED_TRAIN_TYPES:
       console.log('payload', payload);
-      const checkedTrainTypes = payload;
-      let newHighSpeed = state.highSpeed;
-      if (Boolean(checkedTrainTypes[1] && checkedTrainTypes[5])) {
+      checkedTrainTypes = payload;
+      newHighSpeed = state.highSpeed;
+      if ((checkedTrainTypes[1] && checkedTrainTypes[5])) {
         newHighSpeed = true;
       }
       return { ...state, checkedTrainTypes: payload, highSpeed: newHighSpeed }

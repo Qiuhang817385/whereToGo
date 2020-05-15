@@ -115,20 +115,7 @@ function App (props) {
         // console.log('res', res)
       })
 
-  }, [
-    from, to,
-    departDate, highSpeed,
-    searchParsed,
-    orderType,
-    onlyTickets,
-    checkedTicketTypes,
-    checkedTrainTypes,
-    checkedDepartStations,
-    checkedArriveStations,
-    departTimeStart,
-    departTimeEnd,
-    arriveTimeStart,
-    arriveTimeEnd,])
+  }, [from, to, departDate, highSpeed, searchParsed, orderType, onlyTickets, checkedTicketTypes, checkedTrainTypes, checkedDepartStations, checkedArriveStations, departTimeStart, departTimeEnd, arriveTimeStart, arriveTimeEnd, setTrainList, setTicketTypes, setTrainTypes, setDepartStations, setArriveStations])
 
   const {
     isPrevDisabled,

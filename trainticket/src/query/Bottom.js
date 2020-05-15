@@ -1,15 +1,16 @@
-import React, { memo, useState, useCallback, useReducer, useMemo } from 'react'
+import React, { memo, useState, useReducer, useMemo } from 'react'
 import './css/Bottom.css';
 import { ORDER_DEPART } from './constant';
 import classnames from 'classnames';
-import Slider from './Slider';
+// import Slider from './Slider';
 function checkedReducer (state, action) {
   const { type, payload } = action;
+  let newState;
   switch (type) {
     case 'reset':
       return {};
     case 'toggle':
-      const newState = { ...state };
+      newState = { ...state };
       if (payload in newState) {
         delete newState[payload];
       } else {
@@ -240,7 +241,7 @@ const BottomModal = memo(function (props) {
           {
             optionGroup.map(group => <Option {...group} key={group.title}></Option>)
           }
-          <Slider
+          {/* <Slider
             title="出发时间"
             currentStartHours={localDepartTimeStart}
             currentEndHours={localDepartTimeEnd}
@@ -253,7 +254,7 @@ const BottomModal = memo(function (props) {
             currentEndHours={localArriveTimeEnd}
             onStartChanged={setLocalArriveTimeStart}
             onEndChanged={setLocalArriveTimeEnd}
-          />
+          /> */}
         </div>
       </div>
     </div>

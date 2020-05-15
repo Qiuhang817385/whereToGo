@@ -7,11 +7,11 @@ export default function useNav (departDate, prevDate, nextDate) {
   const prev = useCallback(() => {
     if (isPrevDisabled) return
     prevDate()
-  }, [isPrevDisabled])
+  }, [isPrevDisabled, prevDate])
   const next = useCallback(() => {
     if (isNextDisabled) return
     nextDate()
-  }, [isNextDisabled])
+  }, [isNextDisabled, nextDate])
   return {
     isPrevDisabled,
     isNextDisabled,

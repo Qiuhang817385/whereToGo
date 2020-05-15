@@ -30,7 +30,6 @@ function App (props) {
     tickets,
     isScheduleVisible,
     searchParsed,
-    dispatch,
     setArriveStation, setDepartStation, setTrainNumber, setDepartDate, setSearchParsed, nextDate,
     prevDate,
     setArriveTimeStr, setDepartTimeStr, setArriveDate, setDurationStr,
@@ -59,7 +58,7 @@ function App (props) {
     console.log('date', dates)
     console.log('h0(dayjs(date).valueOf()))', h0(dayjs(dates).valueOf()));
     setSearchParsed(true)
-  }, [])
+  }, [setArriveStation, setDepartDate, setDepartStation, setSearchParsed, setTrainNumber])
 
   const {
     isPrevDisabled,
@@ -106,11 +105,7 @@ function App (props) {
         setTickets(candidates)
       })
 
-  }, [searchParsed, setArriveTimeStr,
-    setDepartTimeStr,
-    setArriveDate,
-    setDurationStr,
-    setTickets,])
+  }, [searchParsed, setArriveTimeStr, setDepartTimeStr, setArriveDate, setDurationStr, setTickets, departDate, trainNumber])
 
 
 

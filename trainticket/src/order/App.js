@@ -1,9 +1,9 @@
-import React, { useCallback, useEffect, useMemo } from 'react'
+import React, { useCallback, useEffect } from 'react'
 import dayjs from 'dayjs';
 import URI from 'urijs';
 import Detail from './../common/Detail';
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux';
+// import { bindActionCreators } from 'redux';
 import './css/App.css'
 import {
   setDepartStation, setArriveStation, setTrainNumber, setSeatType, setDepartDate, setSearchParsed,
@@ -65,7 +65,7 @@ function App (props) {
     setSeatType(type)
     setDepartDate(dayjs(date).valueOf())
     setSearchParsed(true)
-  }, [])
+  }, [setArriveStation, setDepartDate, setDepartStation, setSearchParsed, setSeatType, setTrainNumber])
 
   useEffect(() => {
     if (!searchParsed) return;
@@ -79,11 +79,7 @@ function App (props) {
 
     fetchInitial(url)
 
-  }, [departStation,
-    arriveStation,
-    seatType,
-    departDate,
-    searchParsed])
+  }, [departStation, arriveStation, seatType, departDate, searchParsed, fetchInitial])
 
   const doCreateAdult = useCallback(() => {
     createAdult()

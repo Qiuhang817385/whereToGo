@@ -4,7 +4,6 @@ import './css/Passengers.css'
 const Passenger = memo(function (props) {
   const { id,
     name,
-    followAdult,
     ticketType,
     licenceNo,
     gender,
@@ -111,8 +110,6 @@ export default memo(function Passengers (props) {
     createChild,
     removePassenger,
     updatePassenger,
-
-    showMenu,
     showGenderMenu,
     showFollowAdultMenu,
     showTicketTypeMenu,
