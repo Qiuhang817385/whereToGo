@@ -372,7 +372,7 @@ useState，数量不能多也不能少
 
 而不是setState
 
-### 仅在函数组件和自定义hook里面调用hook
+### 仅在函数组件和自定义hook里面调用hook,fetch
 
 ![image-20200509171206190](C:/Users/Artificial/AppData/Roaming/Typora/typora-user-images/image-20200509171206190.png)
 

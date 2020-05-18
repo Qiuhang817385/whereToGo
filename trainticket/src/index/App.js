@@ -35,40 +35,24 @@ function App (props) {
     highSpeed
   } = props;
 
-  const doExchangeFromTo = useCallback(() => {
-    return exchangeFromTo()
-  }, [exchangeFromTo])
+  const doExchangeFromTo = useCallback(exchangeFromTo, [])
   // 这里怎么判断左右,OK,刚才action的逻辑不对
   // 展示图层
-  const doShowCitySelector = useCallback((f) => {
-    return showCitySelector(f)
-  }, [showCitySelector])
+  const doShowCitySelector = useCallback(showCitySelector, [])
   // 关闭图层
-  const doHideCitySelector = useCallback(() => {
-    return hideCitySelector()
-  }, [hideCitySelector])
-  const doFetchCityData = useCallback(() => {
-    return fetchCityData()
-  }, [fetchCityData])
-  const doSetSelectedCity = useCallback((v) => {
-    return setSelectedCity(v)
-  }, [setSelectedCity])
-  const doShowDateSelector = useCallback(() => {
-    return showDateSelector()
-  }, [showDateSelector])
-  const doDideDateSelector = useCallback(() => {
-    return hideDateSelector()
-  }, [hideDateSelector])
+  const doHideCitySelector = useCallback(hideCitySelector, [])
+  const doFetchCityData = useCallback(fetchCityData, [])
+  const doSetSelectedCity = useCallback(setSelectedCity, [])
+  const doShowDateSelector = useCallback(showDateSelector, [])
+  const doDideDateSelector = useCallback(hideDateSelector, [])
   const doOnSelectDate = useCallback((day) => {
     if (!day) return;
     if (day < h0()) return;
     setDepartDate(day);
     hideDateSelector()
-  }, [setDepartDate, hideDateSelector])
+  }, [hideDateSelector, setDepartDate])
 
-  const doToggleHighSpeed = useCallback(() => {
-    toggleHighSpeed();
-  }, [toggleHighSpeed])
+  const doToggleHighSpeed = useCallback(toggleHighSpeed, [])
 
 
   return (

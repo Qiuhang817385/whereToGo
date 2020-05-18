@@ -124,45 +124,55 @@ function App (props) {
     next,
   } = useNav(departDate, prevDate, nextDate)
 
-  const doToggleOrderType = useCallback(() => {
-    toggleOrderType()
-  }, [toggleOrderType])
-  const doToggleHighSpeed = useCallback(() => {
-    toggleHighSpeed()
-  }, [toggleHighSpeed])
-  const doToggleOnlyTickets = useCallback(() => {
-    toggleOnlyTickets()
-  }, [toggleOnlyTickets])
-  const doToggleIsFiltersVisible = useCallback(() => {
-    toggleIsFiltersVisible()
-  }, [toggleIsFiltersVisible])
 
-  const doSetCheckedTicketTypes = useCallback((v) => {
-    setCheckedTicketTypes(v)
-  }, [setCheckedTicketTypes])
-  const doSetCheckedTrainTypes = useCallback((v) => {
-    setCheckedTrainTypes(v)
-  }, [setCheckedTrainTypes])
-  const doSetCheckedDepartStations = useCallback((v) => {
-    setCheckedDepartStations(v)
-  }, [setCheckedDepartStations])
-  const doSetCheckedArriveStations = useCallback((v) => {
-    setCheckedArriveStations(v)
-  }, [setCheckedArriveStations])
+  // const bottomCbs = useMemo(() => {
+  //   return {
+  //     toggleOrderType,
+  //     toggleHighSpeed,
+  //     toggleOnlyTickets,
+  //     toggleIsFiltersVisible,
+  //     setCheckedTicketTypes,
+  //     setCheckedTrainTypes,
+  //     setCheckedDepartStations,
+  //     setCheckedArriveStations,
+  //     setDepartTimeStart,
+  //     setDepartTimeEnd,
+  //     setArriveTimeStart,
+  //     setArriveTimeEnd,
+  //   }
+  // }, [])
+  // const bottomCbs = () => {
+  //   return {
+  //     toggleOrderType,
+  //     toggleHighSpeed,
+  //     toggleOnlyTickets,
+  //     toggleIsFiltersVisible,
+  //     setCheckedTicketTypes,
+  //     setCheckedTrainTypes,
+  //     setCheckedDepartStations,
+  //     setCheckedArriveStations,
+  //     setDepartTimeStart,
+  //     setDepartTimeEnd,
+  //     setArriveTimeStart,
+  //     setArriveTimeEnd,
+  //   }
+  // }
+
+  const doToggleOrderType = useCallback(toggleOrderType, [])
+  const doToggleHighSpeed = useCallback(toggleHighSpeed, [])
+  const doToggleOnlyTickets = useCallback(toggleOnlyTickets, [])
+  const doToggleIsFiltersVisible = useCallback(toggleIsFiltersVisible, [])
+
+  const doSetCheckedTicketTypes = useCallback(setCheckedTicketTypes, [])
+  const doSetCheckedTrainTypes = useCallback(setCheckedTrainTypes, [])
+  const doSetCheckedDepartStations = useCallback(setCheckedDepartStations, [])
+  const doSetCheckedArriveStations = useCallback(setCheckedArriveStations, [])
 
 
-  const doSetDepartTimeStart = useCallback((v) => {
-    setDepartTimeStart(v)
-  }, [setDepartTimeStart])
-  const doSetDepartTimeEnd = useCallback((v) => {
-    setDepartTimeEnd(v)
-  }, [setDepartTimeEnd])
-  const doSetArriveTimeStart = useCallback((v) => {
-    setArriveTimeStart(v)
-  }, [setArriveTimeStart])
-  const doSetArriveTimeEnd = useCallback((v) => {
-    setArriveTimeEnd(v)
-  }, [setArriveTimeEnd])
+  const doSetDepartTimeStart = useCallback(setDepartTimeStart, [])
+  const doSetDepartTimeEnd = useCallback(setDepartTimeEnd, [])
+  const doSetArriveTimeStart = useCallback(setArriveTimeStart, [])
+  const doSetArriveTimeEnd = useCallback(setArriveTimeEnd, [])
 
   // 两次渲染过程，经历的hook函数不匹配会导致错误
   // React Hook "useCallback" is called conditionally. 
@@ -173,7 +183,7 @@ function App (props) {
   if (!searchParsed) {
     return null;
   }
-  console.log('departDate', dayjs(departDate).format('YYYY-MM-DD'))
+  // console.log('departDate', dayjs(departDate).format('YYYY-MM-DD'))
   return (
     <div>
       <div className="header-wrapper">
@@ -195,6 +205,10 @@ function App (props) {
         orderType={orderType}
         onlyTickets={onlyTickets}
         isFiltersVisible={isFiltersVisible}
+
+        // {...bottomCbs()}
+        // {...bottomCbs}
+
         doToggleOrderType={doToggleOrderType}
         doToggleHighSpeed={doToggleHighSpeed}
         doToggleOnlyTickets={doToggleOnlyTickets}

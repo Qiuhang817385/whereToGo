@@ -104,7 +104,10 @@ const BottomModal = memo(function (props) {
     doSetArriveTimeStart,
     doSetArriveTimeEnd,
 
-    doToggleIsFiltersVisible
+    doToggleIsFiltersVisible,
+
+
+
   } = props;
 
   // const initiVal = {
@@ -296,8 +299,24 @@ export default function Bottom (props) {
     doSetDepartTimeEnd,
     doSetArriveTimeStart,
     doSetArriveTimeEnd,
-  } = props
 
+
+    // 现在我们来实验一下,区别!!!
+
+    toggleOrderType,
+    toggleHighSpeed,
+    toggleOnlyTickets,
+    toggleIsFiltersVisible,
+    setCheckedTicketTypes,
+    setCheckedTrainTypes,
+    setCheckedDepartStations,
+    setCheckedArriveStations,
+    setDepartTimeStart,
+    setDepartTimeEnd,
+    setArriveTimeStart,
+    setArriveTimeEnd,
+  } = props
+  console.log('props', props)
   // console.log('checkedTrainTypes', Object.keys(checkedTrainTypes), checkedTrainTypes)
 
   // 这里不能使用useMemo
@@ -320,7 +339,7 @@ export default function Bottom (props) {
     arriveTimeStart,
     arriveTimeEnd,]) */;
 
-  console.log('noChecked', noChecked)
+  // console.log('noChecked', noChecked)
   return (
     <div className="bottom">
       <div className="bottom-filters">

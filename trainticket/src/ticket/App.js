@@ -71,9 +71,8 @@ function App (props) {
     document.title = trainNumber;
   }, [trainNumber])
 
-  const doToggleIsScheduleVisible = useCallback(() => {
-    toggleIsScheduleVisible()
-  }, [toggleIsScheduleVisible])
+  const doToggleIsScheduleVisible = useCallback(toggleIsScheduleVisible
+    , [])
 
   const Schedule = lazy(() => import('./Schedule.js'));
 

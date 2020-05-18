@@ -81,34 +81,16 @@ function App (props) {
 
   }, [departStation, arriveStation, seatType, departDate, searchParsed, fetchInitial])
 
-  const doCreateAdult = useCallback(() => {
-    createAdult()
-  }, [createAdult])
-  const doCreateChild = useCallback(() => {
-    createChild()
-  }, [createChild])
-  const doRemovePassenger = useCallback((v) => {
-    removePassenger(v)
-  }, [removePassenger])
-  const doUpdatePassenger = useCallback((id, val) => {
-    updatePassenger(id, val)
-  }, [updatePassenger])
-  const doHideMenu = useCallback(() => {
-    hideMenu()
-  }, [hideMenu])
-  const doShowMenu = useCallback((v) => {
-    showMenu(v)
-  }, [showMenu])
+  const doCreateAdult = useCallback(createAdult, [])
+  const doCreateChild = useCallback(createChild, [])
+  const doRemovePassenger = useCallback(removePassenger, [])
+  const doUpdatePassenger = useCallback(updatePassenger, [])
+  const doHideMenu = useCallback(hideMenu, [])
+  const doShowMenu = useCallback(showMenu, [])
 
-  const doShowGenderMenu = useCallback((v) => {
-    showGenderMenu(v)
-  }, [showGenderMenu])
-  const doShowFollowAdultMenu = useCallback((v) => {
-    showFollowAdultMenu(v)
-  }, [showFollowAdultMenu])
-  const doShowTicketTypeMenu = useCallback((v) => {
-    showTicketTypeMenu(v)
-  }, [showTicketTypeMenu])
+  const doShowGenderMenu = useCallback(showGenderMenu, [])
+  const doShowFollowAdultMenu = useCallback(showFollowAdultMenu, [])
+  const doShowTicketTypeMenu = useCallback(showTicketTypeMenu, [])
 
   // const passengersCbs = useMemo(() => {
   // return bindActionCreators({

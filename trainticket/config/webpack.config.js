@@ -1,4 +1,4 @@
-'use strict';
+
 
 const fs = require('fs');
 const path = require('path');
@@ -25,12 +25,16 @@ const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
 
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin')
+
 const postcssNormalize = require('postcss-normalize');
 
 const appPackageJson = require(paths.appPackageJson);
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
-const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
+// const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
+const shouldUseSourceMap = false;
 // Some apps do not need the benefits of saving a web request, so not inlining the chunk
 // makes for a smoother build process.
 const shouldInlineRuntimeChunk = process.env.INLINE_RUNTIME_CHUNK !== 'false';
@@ -100,6 +104,17 @@ module.exports = function (webpackEnv) {
               },
               stage: 3,
             }),
+            // require('postcss-px-to-viewport')({
+            //   unitToConvert: 'px',
+            //   viewportWidth: 375,
+            //   viewportHeight: 1334, // 视口高度（数字）
+            //   unitPrecision: 3,
+            //   viewportUnit: 'vw',
+            //   fontViewportUnit: 'vw',
+            //   selectorBlackList: ['.vwignore', 'html', /^body$/, '.ignore', '.hairlines'],
+            //   minPixelValue: 1,
+            //   mediaQuery: false,
+            // }),
             // Adds PostCSS Normalize as the reset css with default options,
             // so that it honors browserslist config in package.json
             // which in turn let's users customize the target behavior as per their needs.
@@ -496,6 +511,10 @@ module.exports = function (webpackEnv) {
     },
     plugins: [
       // Generates an `index.html` file with the <script> injected.
+      new BundleAnalyzerPlugin({
+        openAnalyzer: false,
+        analyzerMode: 'static'
+      }),
       new HtmlWebpackPlugin(
         Object.assign(
           {},
@@ -604,6 +623,21 @@ module.exports = function (webpackEnv) {
       // Inlines the webpack runtime script. This script is too small to warrant
       // a network request.
       // https://github.com/facebook/create-react-app/issues/5358
+      // HtmlWebpackExternalsPlugin
+      // isEnvProduction && new HtmlWebpackExternalsPlugin({
+      //   externals: [
+      //     {
+      //       module: 'react',
+      //       entry: 'https://unpkg.com/react@16/umd/react.production.min.js',
+      //       global: 'React'
+      //     }, {
+      //       module: 'react-dom',
+      //       entry: 'https://unpkg.com/react-dom@16/umd/react-dom.production.min.js',
+      //       global: 'ReactDom'
+      //     }
+      //   ]
+      // })
+      ,
       isEnvProduction &&
       shouldInlineRuntimeChunk &&
       new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [/runtime-.+[.]js/]),
