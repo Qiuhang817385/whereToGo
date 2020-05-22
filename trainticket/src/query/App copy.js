@@ -125,14 +125,14 @@ function App (props) {
     next,
   } = useNav(departDate, prevDate, nextDate)
 
-  const bottomCbs = useMemo(() => {
-    return {
-      toggleOrderType,
-      toggleHighSpeed,
-      toggleOnlyTickets,
-      toggleIsFiltersVisible,
-    }
-  }, [toggleHighSpeed, toggleIsFiltersVisible, toggleOnlyTickets, toggleOrderType])
+  // const bottomCbs = useMemo(() => {
+  //   return {
+  //     toggleOrderType,
+  //     toggleHighSpeed,
+  //     toggleOnlyTickets,
+  //     toggleIsFiltersVisible,
+  //   }
+  // }, [toggleHighSpeed, toggleIsFiltersVisible, toggleOnlyTickets, toggleOrderType])
 
   const doToggleOrderType = useCallback(toggleOrderType, [])
   const doToggleHighSpeed = useCallback(toggleHighSpeed, [])

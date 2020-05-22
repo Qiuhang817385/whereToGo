@@ -303,18 +303,18 @@ export default function Bottom (props) {
 
     // 现在我们来实验一下,区别!!!
 
-    toggleOrderType,
-    toggleHighSpeed,
-    toggleOnlyTickets,
-    toggleIsFiltersVisible,
-    setCheckedTicketTypes,
-    setCheckedTrainTypes,
-    setCheckedDepartStations,
-    setCheckedArriveStations,
-    setDepartTimeStart,
-    setDepartTimeEnd,
-    setArriveTimeStart,
-    setArriveTimeEnd,
+    // toggleOrderType,
+    // toggleHighSpeed,
+    // toggleOnlyTickets,
+    // toggleIsFiltersVisible,
+    // setCheckedTicketTypes,
+    // setCheckedTrainTypes,
+    // setCheckedDepartStations,
+    // setCheckedArriveStations,
+    // setDepartTimeStart,
+    // setDepartTimeEnd,
+    // setArriveTimeStart,
+    // setArriveTimeEnd,
   } = props
   console.log('props', props)
   // console.log('checkedTrainTypes', Object.keys(checkedTrainTypes), checkedTrainTypes)
